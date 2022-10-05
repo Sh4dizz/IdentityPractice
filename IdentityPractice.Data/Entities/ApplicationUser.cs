@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
@@ -8,9 +9,8 @@ using System.Threading.Tasks;
 
 namespace IdentityPractice.Data.Entities
 {
-    public class ApplicationUser : IEntityTypeConfiguration<ApplicationUser>
-    {
-        public int Id { get; set; }
+    public class ApplicationUser : IdentityUser<int>, IEntityTypeConfiguration<ApplicationUser>
+    {       
         public string? FullName { get; set; }
         public int? Age { get; set; }
 

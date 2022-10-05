@@ -1,4 +1,6 @@
 ﻿using IdentityPractice.Data.Entities;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace IdentityPractice.Data
 {
-    public class IdentityPracticeDbContext : DbContext
+    public class IdentityPracticeDbContext : IdentityDbContext<ApplicationUser,IdentityRole<int>,int>
     {
         public IdentityPracticeDbContext(DbContextOptions<IdentityPracticeDbContext> options) : base(options)
         {
