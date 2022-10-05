@@ -1,3 +1,6 @@
+using IdentityPractice.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace IdentityPractice.Web
 {
     public class Program
@@ -7,6 +10,9 @@ namespace IdentityPractice.Web
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+
+            builder.Services.AddDbContext<IdentityPracticeDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("IdentityPracticeDb")));
+
             builder.Services.AddRazorPages();
 
             var app = builder.Build();
