@@ -14,7 +14,7 @@ namespace IdentityPractice.Web
             // Add services to the container.
 
             builder.Services.AddDbContext<IdentityPracticeDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("IdentityPracticeDb")));
-            
+     
             builder.Services.AddIdentity<ApplicationUser, IdentityRole<int>>().AddEntityFrameworkStores<IdentityPracticeDbContext>().AddDefaultTokenProviders();
 
             builder.Services.Configure<IdentityOptions>(options => 
