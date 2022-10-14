@@ -5,4 +5,13 @@
 }
 <h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<ejs-chart id="container" title="My data chart" width="60%">
+    <e-chart-primaryxaxis valueType="DateTime" labelFormat="y" intervalType ="Auto" edgeLabelPlacement="Shift"></e-chart-primaryxaxis>
+    <e-series-collection>
+        <e-series dataSource="Model.ChartData" name="MyData" xName="xValue" width="2" opacity="1" yName="yValue" typeof="@Syncfusion.EJ2.Charts.ChartSeriesType.Candle"></e-series>
+    </e-series-collection>
+</ejs-chart>
+
+<br />
+
+<ejs-spreadsheet id="spreadsheet"></ejs-spreadsheet>

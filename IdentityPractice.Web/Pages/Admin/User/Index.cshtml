@@ -1,0 +1,46 @@
+﻿@page
+@model IdentityPractice.Web.Pages.Admin.User.IndexModel
+@{
+}
+
+<h1>Users</h1>
+
+<p>
+    <a asp-page="Create">Register new user</a>
+</p>
+
+<table class="table" id="userTable">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Users)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.userId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>              
+                <td class="text-nowrap">
+                    <a asp-page="./Edit" asp-route-id="@item.userId">Edit</a> |
+                    <a class="btn disabled" asp-page="./Details" asp-route-id="@item.userId">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.userId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $("#userTable").dataTable();
+        });
+    </script>
+}
